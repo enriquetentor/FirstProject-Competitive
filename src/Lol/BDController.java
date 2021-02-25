@@ -18,7 +18,7 @@ public class BDController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			this.conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto multidisciplinar3",
+			this.conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto multidisciplinar",
 					"root", "");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -49,7 +49,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameJugadores\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameJugadores\"");
 			e.printStackTrace();
 		}
 		return Jugadores;
@@ -69,7 +69,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameJugador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameJugador\"");
 			e.printStackTrace();
 		}
 		return jugador;
@@ -91,7 +91,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameJugadoresRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameJugadoresRegion\"");
 			e.printStackTrace();
 		}
 		return Jugadores;
@@ -111,7 +111,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameCampeonatos\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameCampeonatos\"");
 			e.printStackTrace();
 		}
 		return Campeonatos;
@@ -131,17 +131,17 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameCampeonatosRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameCampeonatosRegion\"");
 			e.printStackTrace();
 		}
 		return Campeonatos;
 	}
 
-	public ArrayList<Campeonato> dameCampeonatosAño(int año) {
+	public ArrayList<Campeonato> dameCampeonatosAÃ±o(int aÃ±o) {
 		ArrayList<Campeonato> Campeonatos = new ArrayList<Campeonato>();
 		try {
 			Statement miStatement = this.conexion.createStatement();
-			ResultSet rs = miStatement.executeQuery("SELECT*FROM campeonatos WHERE YEAR(fecha_inicio)=" + año + ";");
+			ResultSet rs = miStatement.executeQuery("SELECT*FROM campeonatos WHERE YEAR(fecha_inicio)=" + aÃ±o + ";");
 			while (rs.next() == true) {
 				Campeonatos.add(new Campeonato(rs.getInt("cod_campeonato"), rs.getString("nombre"),
 						rs.getString("fecha_inicio"), rs.getString("fecha_fin"), rs.getString("region"),
@@ -151,18 +151,18 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameCampeonatosAño\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameCampeonatosAÃ±o\"");
 			e.printStackTrace();
 		}
 		return Campeonatos;
 	}
 
-	public ArrayList<Campeonato> dameCampeonatosRegionAño(String region, int año) {
+	public ArrayList<Campeonato> dameCampeonatosRegionAÃ±o(String region, int aÃ±o) {
 		ArrayList<Campeonato> Campeonatos = new ArrayList<Campeonato>();
 		try {
 			Statement miStatement = this.conexion.createStatement();
 			ResultSet rs = miStatement.executeQuery(
-					"SELECT*FROM campeonatos WHERE region='" + region + "' AND YEAR(fecha_inicio)=" + año + ";");
+					"SELECT*FROM campeonatos WHERE region='" + region + "' AND YEAR(fecha_inicio)=" + aÃ±o + ";");
 			while (rs.next() == true) {
 				Campeonatos.add(new Campeonato(rs.getInt("cod_campeonato"), rs.getString("nombre"),
 						rs.getString("fecha_inicio"), rs.getString("fecha_fin"), rs.getString("region"),
@@ -172,7 +172,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameCampeonatosRegionAño\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameCampeonatosRegionAÃ±o\"");
 			e.printStackTrace();
 		}
 		return Campeonatos;
@@ -192,7 +192,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEntrenadores\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEntrenadores\"");
 			e.printStackTrace();
 		}
 		return Entrenadores;
@@ -213,7 +213,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEntrenador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEntrenador\"");
 			e.printStackTrace();
 		}
 		return entrenador;
@@ -235,7 +235,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEntrenadoresRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEntrenadoresRegion\"");
 			e.printStackTrace();
 		}
 		return Entrenadores;
@@ -255,7 +255,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEquipos\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEquipos\"");
 			e.printStackTrace();
 		}
 		return Equipos;
@@ -275,7 +275,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEquipo\"");
 			e.printStackTrace();
 		}
 		return equipo;
@@ -297,7 +297,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEquiposRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEquiposRegion\"");
 			e.printStackTrace();
 		}
 		return Equipos;
@@ -315,7 +315,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"damePatrocinadores\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"damePatrocinadores\"");
 			e.printStackTrace();
 		}
 		return Patrocinadores;
@@ -333,7 +333,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameRegiones\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameRegiones\"");
 			e.printStackTrace();
 		}
 		return Regiones;
@@ -351,7 +351,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameRegion\"");
 			e.printStackTrace();
 		}
 		return region;
@@ -369,7 +369,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameRegion2\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameRegion2\"");
 			e.printStackTrace();
 		}
 		return region;
@@ -387,7 +387,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameSedes\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameSedes\"");
 			e.printStackTrace();
 		}
 		return Sedes;
@@ -405,7 +405,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEquipos_Campeonatos\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEquipos_Campeonatos\"");
 			e.printStackTrace();
 		}
 		return Equipos_Campeonatos;
@@ -424,7 +424,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEquipos_Patrocinadores\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEquipos_Patrocinadores\"");
 			e.printStackTrace();
 		}
 		return Equipo_Patrocinadores;
@@ -444,7 +444,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"damePatrocinadoresDeEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"damePatrocinadoresDeEquipo\"");
 			e.printStackTrace();
 		}
 		return Patrocinadores;
@@ -464,7 +464,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameJugadoresEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameJugadoresEquipo\"");
 			e.printStackTrace();
 		}
 		return Jugadores;
@@ -484,7 +484,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEntrenadoresEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEntrenadoresEquipo\"");
 			e.printStackTrace();
 		}
 		return Entrenadores;
@@ -504,7 +504,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameCampeonatosEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameCampeonatosEquipo\"");
 			e.printStackTrace();
 		}
 		return Campeonatos;
@@ -526,7 +526,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEquiposCampeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEquiposCampeonato\"");
 			e.printStackTrace();
 		}
 		return Equipos;
@@ -547,7 +547,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameCampeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameCampeonato\"");
 			e.printStackTrace();
 		}
 		return Campeonato;
@@ -567,7 +567,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameSedeEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameSedeEquipo\"");
 			e.printStackTrace();
 		}
 		return sede;
@@ -587,49 +587,49 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameRegionEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameRegionEquipo\"");
 			e.printStackTrace();
 		}
 		return Regiones;
 	}
 
-	public ArrayList<String> dameAñosCampeonato(String region) {
-		ArrayList<String> añosCameponato = new ArrayList<String>();
+	public ArrayList<String> dameAÃ±osCampeonato(String region) {
+		ArrayList<String> aÃ±osCameponato = new ArrayList<String>();
 		try {
 			Statement miStatement = this.conexion.createStatement();
 			ResultSet rs = miStatement
-					.executeQuery("SELECT YEAR(fecha_inicio) as 'años' FROM `campeonatos` WHERE region='" + region
+					.executeQuery("SELECT YEAR(fecha_inicio) as 'aÃ±os' FROM `campeonatos` WHERE region='" + region
 							+ "' GROUP BY YEAR(fecha_inicio);");
 			while (rs.next() == true) {
-				añosCameponato.add(rs.getString("años"));
+				aÃ±osCameponato.add(rs.getString("aÃ±os"));
 			}
 			miStatement.close();
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameAñosCampeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameAÃ±osCampeonato\"");
 			e.printStackTrace();
 		}
-		return añosCameponato;
+		return aÃ±osCameponato;
 	}
 
-	public ArrayList<String> dameAñosCampeonatos() {
-		ArrayList<String> añosCameponato = new ArrayList<String>();
+	public ArrayList<String> dameAÃ±osCampeonatos() {
+		ArrayList<String> aÃ±osCameponato = new ArrayList<String>();
 		try {
 			Statement miStatement = this.conexion.createStatement();
 			ResultSet rs = miStatement.executeQuery(
-					"SELECT YEAR(fecha_inicio) as 'años' FROM `campeonatos` GROUP BY YEAR(fecha_inicio);");
+					"SELECT YEAR(fecha_inicio) as 'aÃ±os' FROM `campeonatos` GROUP BY YEAR(fecha_inicio);");
 			while (rs.next() == true) {
-				añosCameponato.add(rs.getString("años"));
+				aÃ±osCameponato.add(rs.getString("aÃ±os"));
 			}
 			miStatement.close();
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameAñosCampeonatos\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameAÃ±osCampeonatos\"");
 			e.printStackTrace();
 		}
-		return añosCameponato;
+		return aÃ±osCameponato;
 	}
 
 	public int dameEdadJugador(String fecha_nac, int cod_jugador) {
@@ -645,7 +645,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"dameEdadJugador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"dameEdadJugador\"");
 			e.printStackTrace();
 		}
 		return EdadJugador;
@@ -663,7 +663,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"regionExiste\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"regionExiste\"");
 			e.printStackTrace();
 		}
 		return exist;
@@ -681,7 +681,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodSede\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodSede\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -699,7 +699,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodRegion\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -717,7 +717,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodPatrocinador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodPatrocinador\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -735,7 +735,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodJugador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodJugador\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -753,7 +753,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodEquipo\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -771,7 +771,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodEntrenador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodEntrenador\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -789,7 +789,7 @@ public class BDController {
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"calcularCodCampeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"calcularCodCampeonato\"");
 			e.printStackTrace();
 		}
 		return MaxCod;
@@ -803,7 +803,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaSede\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaSede\"");
 			e.printStackTrace();
 		}
 	}
@@ -817,7 +817,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaRegion\"");
 			e.printStackTrace();
 		}
 	}
@@ -831,7 +831,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaPatrocinador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaPatrocinador\"");
 			e.printStackTrace();
 		}
 	}
@@ -846,7 +846,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaJugador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaJugador\"");
 			e.printStackTrace();
 		}
 	}
@@ -861,7 +861,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaEquipo\"");
 			e.printStackTrace();
 		}
 	}
@@ -877,7 +877,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaEntrenador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaEntrenador\"");
 			e.printStackTrace();
 		}
 	}
@@ -892,7 +892,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaCampeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaCampeonato\"");
 			e.printStackTrace();
 		}
 	}
@@ -906,7 +906,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaEquipo_Campeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaEquipo_Campeonato\"");
 			e.printStackTrace();
 		}
 	}
@@ -920,7 +920,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"altaEquipo_Patrocinador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"altaEquipo_Patrocinador\"");
 			e.printStackTrace();
 		}
 	}
@@ -933,7 +933,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaJugador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaJugador\"");
 			e.printStackTrace();
 		}
 	}
@@ -946,7 +946,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEntrenador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEntrenador\"");
 			e.printStackTrace();
 		}
 	}
@@ -959,7 +959,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo_Campeonatos\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo_Campeonatos\"");
 			e.printStackTrace();
 		}
 	}
@@ -973,7 +973,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo_Campeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo_Campeonato\"");
 			e.printStackTrace();
 		}
 	}
@@ -986,7 +986,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo_Patrocinadores\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo_Patrocinadores\"");
 			e.printStackTrace();
 		}
 	}
@@ -1000,7 +1000,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo_Patrocinador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo_Patrocinador\"");
 			e.printStackTrace();
 		}
 	}
@@ -1013,7 +1013,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaPatrocinador_Equipos\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaPatrocinador_Equipos\"");
 			e.printStackTrace();
 		}
 	}
@@ -1026,7 +1026,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaPatrocinador1\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaPatrocinador1\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1036,7 +1036,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaPatrocinador2\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaPatrocinador2\"");
 			e.printStackTrace();
 		}
 	}
@@ -1049,7 +1049,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaCampeonato1\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaCampeonato1\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1059,7 +1059,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaCampeonato2\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaCampeonato2\"");
 			e.printStackTrace();
 		}
 	}
@@ -1072,7 +1072,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaSede1\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaSede1\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1082,7 +1082,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaSede2\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaSede2\"");
 			e.printStackTrace();
 		}
 	}
@@ -1095,7 +1095,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaRegion1\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaRegion1\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1105,7 +1105,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaRegion2\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaRegion2\"");
 			e.printStackTrace();
 		}
 	}
@@ -1118,7 +1118,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo1\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo1\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1128,7 +1128,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo2\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo2\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1138,7 +1138,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo3\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo3\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1148,7 +1148,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo4\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo4\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1158,7 +1158,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo5\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo5\"");
 			e.printStackTrace();
 		}
 		try {
@@ -1168,7 +1168,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"bajaEquipo6\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"bajaEquipo6\"");
 			e.printStackTrace();
 		}
 	}
@@ -1183,7 +1183,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarSede\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarSede\"");
 			e.printStackTrace();
 		}
 	}
@@ -1198,7 +1198,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarRegion\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarRegion\"");
 			e.printStackTrace();
 		}
 	}
@@ -1213,7 +1213,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarPatrocinador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarPatrocinador\"");
 			e.printStackTrace();
 		}
 	}
@@ -1230,7 +1230,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarCampeonato\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarCampeonato\"");
 			e.printStackTrace();
 		}
 	}
@@ -1247,7 +1247,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarEquipo\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarEquipo\"");
 			e.printStackTrace();
 		}
 	}
@@ -1265,7 +1265,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarEntrenador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarEntrenador\"");
 			e.printStackTrace();
 		}
 	}
@@ -1282,7 +1282,7 @@ public class BDController {
 			miStatement.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en la clase BDController, método \"modificarJugador\"");
+			System.out.println("Error en la clase BDController, mÃ©todo \"modificarJugador\"");
 			e.printStackTrace();
 		}
 	}
